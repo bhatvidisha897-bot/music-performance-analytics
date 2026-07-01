@@ -9,18 +9,19 @@ A data science and analytics platform that analyzes music performance data to pr
 - **PostgreSQL** — Database & SQL analytics
 - **Scikit-learn** — Machine learning models
 - **Matplotlib & Seaborn** — Data visualization
-- **Power BI** — Interactive dashboard (upcoming)
+- **Power BI** — Interactive dashboard
 
 ## 📊 Modules
 | Module | Description | Status |
 |--------|-------------|--------|
 | Data Collection & Cleaning | Spotify dataset, 89,741 songs | ✅ Done |
-| Exploratory Data Analysis | Genre trends, correlations | ✅ Done |
-| SQL & ETL Pipeline | PostgreSQL integration | ✅ Done |
-| Genre Clustering (K-Means) | Unsupervised song grouping | ✅ Done |
-| Popularity Prediction | Regression models | ✅ Done |
-| Hit/Flop Classification | Binary classification | ✅ Done |
-| Power BI Dashboard | Interactive visuals | ⏳ Upcoming |
+| Exploratory Data Analysis | Genre trends, correlations, 5 charts | ✅ Done |
+| SQL & ETL Pipeline | PostgreSQL integration, advanced queries | ✅ Done |
+| Genre Clustering (K-Means) | 5 musical clusters identified | ✅ Done |
+| Popularity Prediction | 3 models compared — RF wins | ✅ Done |
+| Hit/Flop Classification | Binary classification with F1 improvement | ✅ Done |
+| Model Improvement | Feature engineering, genre encoding | ✅ Done |
+| Power BI Dashboard | 4 interactive visuals | ✅ Done |
 
 ## 📁 Dataset
 - **Source:** Spotify Tracks Dataset (Kaggle)
@@ -29,11 +30,39 @@ A data science and analytics platform that analyzes music performance data to pr
 
 ## 🔍 Key Findings
 
-**Genre Clustering:** K-Means clustering on 9 audio features revealed 5 distinct musical groups — from acoustic/calm tracks to high-energy mainstream pop, with the "mainstream pop" cluster showing the highest average popularity.
+**1. Genre Analysis**
+K-Pop is the most popular genre (avg popularity 59.36), followed by pop-film and metal. Genre context significantly improves ML model performance.
 
-**Popularity Prediction:** Random Forest outperformed Linear Regression (R² 0.189 vs 0.030), showing that the relationship between audio features and popularity is non-linear. Acousticness emerged as the single strongest predictor — stronger than danceability or energy.
+**2. Audio Feature Insights**
+Acousticness is the single strongest predictor of popularity — stronger than danceability or energy. Energy and loudness are strongly correlated (confirmed via heatmap and scatter plot).
 
-**Hit/Flop Classification:** Initial model showed high accuracy (83.8%) but poor precision (8%) due to class imbalance — a classic real-world ML problem. Adjusting the hit threshold improved F1 score by over 2x, demonstrating the importance of choosing the right evaluation metric over raw accuracy.
+**3. Song Clustering**
+K-Means clustering revealed 5 distinct musical groups:
+- Cluster 0: Acoustic & Calm tracks
+- Cluster 1: High Energy / Live performances
+- Cluster 2: Spoken Word / Podcast-style (smallest, lowest popularity)
+- Cluster 3: Mainstream Pop/Dance (largest, highest popularity)
+- Cluster 4: Instrumental / Ambient
+
+**4. Popularity Prediction**
+| Model | R² Score |
+|-------|----------|
+| Linear Regression | 0.081 |
+| Gradient Boosting | 0.166 |
+| Random Forest | **0.263** |
+
+Random Forest outperformed all models. Audio features alone explain ~26% of popularity variance — remaining 74% likely driven by artist fame, marketing, and playlist placement.
+
+**5. Hit/Flop Classification**
+Adjusting hit threshold from 70 to 60 improved F1 score by 2x (0.134 → 0.267), demonstrating that choosing the right evaluation metric matters more than raw accuracy.
+
+## 📈 Power BI Dashboard
+4-page interactive dashboard connected to PostgreSQL:
+- Genre popularity comparison
+- Treemap of all genres
+- Danceability vs Popularity scatter
+- Energy vs Loudness correlation
+- Top artists by popularity
 
 ## 👩‍💻 Author
-Vidisha Bhat — Final Year Engineering Student
+Vidisha Bhat — Final Year ENTC Engineering Student, SPPU
